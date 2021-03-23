@@ -49,6 +49,17 @@ public class Test {
 		
 		l1.getendPoint().setY((c1.getcenter().getX()-c1.getcenter().getY())-(r1.getupperLeft().getX()+(int)c1.area()));
 		System.out.println(l1.getendPoint().getY());
+		
+		//VEZBE 4
+		
+		System.out.println(p1);
+		System.out.println(l1);
+		System.out.println(r1);
+		System.out.println(c1);
+		Circle c2=new Circle();
+		c2.setcenter(p2);
+		c2.setradius(3);
+		System.out.println(c1.equals(c2));
 
 	}
 
