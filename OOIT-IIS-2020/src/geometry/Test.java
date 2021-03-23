@@ -60,6 +60,8 @@ public class Test {
 		c2.setcenter(p2);
 		c2.setradius(3);
 		System.out.println(c1.equals(c2));
+		
+		
 
 	}
 
