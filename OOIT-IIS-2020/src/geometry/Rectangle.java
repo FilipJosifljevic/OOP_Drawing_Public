@@ -31,7 +31,14 @@ public class Rectangle {
 	{
 		return 2*(this.width+this.height);
 	}
-	
+	public boolean contains(int x,int y)
+	{
+		return (upperLeft.getX() < x && upperLeft.getX()+width > x && upperLeft.getY() < y && upperLeft.getY() + height > y);
+	}
+	public boolean contains(Point p)
+	{
+		return this.contains(p.getX(),p.getY());
+	}
 	@Override
 	public String toString()
 	{

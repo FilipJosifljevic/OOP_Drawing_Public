@@ -27,7 +27,10 @@ public class Point {
 		double d=Math.sqrt(dx*dx+dy*dy);
 		return d;
 	}
-	
+	public boolean contains(int x,int y)
+	{
+		return this.distance(x, y)<=2;
+	}
 	@Override
 	public String toString()
 	{

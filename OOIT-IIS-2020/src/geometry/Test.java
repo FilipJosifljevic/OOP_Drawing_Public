@@ -61,8 +61,31 @@ public class Test {
 		c2.setradius(3);
 		System.out.println(c1.equals(c2));
 		
+		//VEZBE 5
 		
-
+		Point p7=new Point(6,6);
+		Point p8=new Point(6,7);
+		System.out.println(p7.contains(p8.getX(),p8.getY()));
+		System.out.println(p7.contains(p8.getX()+3,p8.getY()));
+		
+		Circle c4=new Circle(p2,10);
+		System.out.println(c4.contains(p8));
+		System.out.println(c4.contains(9,10));
+		
+		Donut d1=new Donut();
+		//d1.center=new Point(10,20); moze se korisatiti zato sto je centar definisan kao protected
+		d1.setcenter(new Point(10,20));
+		d1.setinnerRadius(10);
+		d1.setradius(50);
+		System.out.print(d1);
+		System.out.println("d1 contains (14,20) : "+d1.contains(24, 20));
+		Circle c5=new Circle(d1.center,d1.radius);
+		System.out.println("d1 equals c5: "+d1.equals(c5));
+		Donut d2=new Donut(new Point(10,20),50,10);
+		System.out.println("d1 equals d2:"+d1.equals(d2));
+		
+		System.out.println("d1 area: "+d1.area());
+		System.out.println("d1 circumference: "+d1.circumference());
 	}
 
 }
