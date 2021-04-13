@@ -1,11 +1,12 @@
 package geometry;
 
-public class Rectangle {
+import java.awt.Graphics;
+
+public class Rectangle extends Shape{
 
 	private Point upperLeft;
 	private int width;
 	private int height;
-	private boolean selected;
 	
 	public Rectangle()
 	{
@@ -81,12 +82,10 @@ public class Rectangle {
 	{
 		this.height=height;
 	}
-	public boolean isselected()
-	{
-		return selected;
+	@Override
+	public void Draw(Graphics g) {
+		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
+		
 	}
-	public void setselected(boolean selected)
-	{
-		this.selected=selected;
-	}
+
 }
