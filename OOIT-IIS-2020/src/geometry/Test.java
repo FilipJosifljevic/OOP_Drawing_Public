@@ -44,7 +44,15 @@ public class Test {
 		Circle c1=new Circle();
 		c1.setcenter(p2);
 		System.out.println("\n\nX center c1: "+c1.getcenter().getX()+"\n\nY center c1 : "+c1.getcenter().getY());
-		c1.setradius((int)c1.getcenter().distance(l1.getstartPoint().getX(), l1.getstartPoint().getY()));
+		//c1.setradius((int)c1.getcenter().distance(l1.getstartPoint().getX(), l1.getstartPoint().getY()));
+		try 
+		{
+			c1.setradius(-1);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		System.out.println(c1.getradius());
 		
 		l1.getendPoint().setY((c1.getcenter().getX()-c1.getcenter().getY())-(r1.getupperLeft().getX()+(int)c1.area()));
@@ -58,7 +66,7 @@ public class Test {
 		System.out.println(c1);
 		Circle c2=new Circle();
 		c2.setcenter(p2);
-		c2.setradius(3);
+		//c2.setradius(3);
 		System.out.println(c1.equals(c2));
 		
 		//VEZBE 5
@@ -76,7 +84,7 @@ public class Test {
 		//d1.center=new Point(10,20); moze se korisatiti zato sto je centar definisan kao protected
 		d1.setcenter(new Point(10,20));
 		d1.setinnerRadius(10);
-		d1.setradius(50);
+		//d1.setradius(50);
 		System.out.print(d1);
 		System.out.println("d1 contains (14,20) : "+d1.contains(24, 20));
 		Circle c5=new Circle(d1.center,d1.radius);
