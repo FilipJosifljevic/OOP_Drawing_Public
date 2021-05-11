@@ -10,6 +10,7 @@ import java.util.Iterator;
 
 public class Drawing extends JPanel{
 
+
 	public static void main(String[] args) {
 		
 		JFrame frame=new JFrame("Drawing");
@@ -41,7 +42,6 @@ public class Drawing extends JPanel{
 		//k1.Draw(g);
 		int innerRD2=(int)(k1.getheight()*Math.sqrt(2))/2;
 		Point p2=new Point(k1.getupperLeft().getX()+k1.getheight()/2,k1.getupperLeft().getY()+k1.getheight()/2);
-		Donut d2=new Donut(p2,80,innerRD2);
 		//d2.Draw(g);
 		
 		ArrayList<Shape> shapes=new ArrayList<Shape>();
