@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import drawing.Point;
 import drawing.Rectangle;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class StackDlg extends JDialog {
 
@@ -82,16 +83,18 @@ public class StackDlg extends JDialog {
 							.addGap(69)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblX)
-								.addComponent(lblY, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblWidth, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblHeight))
-							.addGap(92)
-							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(txtHeight)
-								.addComponent(txtWidth)
-								.addComponent(txtY)
-								.addComponent(txtX))))
-					.addContainerGap())
+								.addComponent(lblHeight)
+								.addComponent(lblY, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+							.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
+								.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+									.addComponent(txtHeight, 69, 69, 69)
+									.addComponent(txtWidth, 69, 69, 69))
+								.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+									.addComponent(txtY, GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+									.addComponent(txtX, Alignment.TRAILING, 68, 68, 68)))))
+					.addGap(104))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -104,16 +107,16 @@ public class StackDlg extends JDialog {
 						.addComponent(txtX, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblY)
-						.addComponent(txtY))
+						.addComponent(lblY, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtY, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(42)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblWidth)
-						.addComponent(txtWidth))
+						.addComponent(txtWidth, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblHeight)
-						.addComponent(txtHeight))
+						.addComponent(txtHeight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(61))
 		);
 		contentPanel.setLayout(gl_contentPanel);

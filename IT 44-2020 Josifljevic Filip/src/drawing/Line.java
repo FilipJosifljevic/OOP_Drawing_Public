@@ -10,16 +10,17 @@ public class Line extends Shape{
 	
 	public Line()
 	{
-		
+		name="Line";
 	}
 	public Line(Point startPoint,Point endPoint)
 	{
+		this();
 		this.startPoint=startPoint;
 		this.endPoint=endPoint;
 	}
 	public Line(Point startPoint,Point endPoint,boolean selected)
 	{
-		this(startPoint,endPoint);
+		this(startPoint,endPoint); 
 		this.selected=selected;
 	}
 	

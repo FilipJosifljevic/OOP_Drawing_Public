@@ -10,10 +10,11 @@ public class Point extends Shape{
 	
 	public Point()
 	{
-		
+		name="Point";
 	}
 	public Point(int x,int y)
 	{
+		this();
 		this.x=x;
 		this.y=y;
 	}
@@ -22,7 +23,11 @@ public class Point extends Shape{
 		this(x,y);
 		this.selected=selected;
 	}
-	
+	public Point(int x,int y,Color color)
+	{
+		this(x,y);
+		this.color=color;
+	}
 	public double distance(int x,int y) {
 		int dx=this.x-x;
 		int dy=this.y-y;

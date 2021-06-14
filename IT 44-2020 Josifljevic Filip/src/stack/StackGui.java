@@ -46,6 +46,7 @@ public class StackGui extends JFrame {
 	 * Create the frame.
 	 */
 	public StackGui() {
+		setTitle("Josifljevic Filip IT-44-2020");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -112,8 +113,8 @@ public class StackGui extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnRemove)
-						.addComponent(btnAdd, GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+						.addComponent(btnAdd, GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+						.addComponent(btnRemove, Alignment.TRAILING))
 					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
@@ -121,9 +122,9 @@ public class StackGui extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(77)
 					.addComponent(btnAdd)
-					.addGap(39)
+					.addGap(60)
 					.addComponent(btnRemove)
-					.addContainerGap(89, Short.MAX_VALUE))
+					.addContainerGap(74, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 	}

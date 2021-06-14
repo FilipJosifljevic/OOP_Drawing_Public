@@ -13,6 +13,7 @@ public class Donut extends Circle{
 	public Donut(Point center,int radius,int innerRadius)
 	{
 		super(center,radius);
+		this.name="Donut";
 		this.innerRadius=innerRadius;
 	}
 	public Donut(Point center,int radius,int innerRadius,boolean selected)
@@ -43,12 +44,21 @@ public class Donut extends Circle{
 			g.drawRect(center.getX()+radius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()-radius-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()+radius-2, 4, 4);
-			g.drawRect(center.getX()-2, center.getY()-2, 4, 4);
+			g.drawRect(center.getX()-2, center.getY()-2, 4, 4); 
 			g.drawRect(center.getX()-innerRadius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()+innerRadius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()-innerRadius-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()+innerRadius-2, 4, 4);
 		}
+	}
+	public void fill(Graphics g) {
+		g.setColor(getInnerColor());
+		super.fill(g);
+		g.setColor(Color.LIGHT_GRAY);
+		g.fillOval(getcenter().getX() - this.innerRadius,
+					getcenter().getY() - this.innerRadius,
+					this.innerRadius * 2 - 2,
+					this.innerRadius * 2 - 2);
 	}
 	@Override
 	public double area()

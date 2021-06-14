@@ -3,17 +3,18 @@ package drawing;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle extends Shape{
+public class Circle extends TwoColorShapes{
 
 	protected Point center;
 	protected int radius;
 	
 	public Circle()
 	{
-		
+		name="Circle";
 	}
 	public Circle(Point center,int radius)
 	{
+		this();
 		this.center=center;
 		this.radius=radius;
 	}
@@ -67,13 +68,20 @@ public class Circle extends Shape{
 		center.moveBy(byX, byY);
 		
 	}
-	@Override
+	@Override 
 	public int compareTo(Object o) {
 		if(o instanceof Circle)
 		{
 			return (int)(this.area()-((Circle) o).area());
 		}
 		return 0;
+	}
+	@Override
+	public void fill(Graphics g) {
+		g.setColor(getInnerColor());
+		g.fillOval(this.center.getX() - this.radius + 1, this.center.getY() - this.radius + 1,
+				this.radius*2 - 2, this.radius*2 - 2);
+		
 	}
 	public Point getcenter()
 	{

@@ -1,22 +1,35 @@
 package drawing;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public abstract class Shape implements Moveable,Comparable{
 	protected boolean selected;
-	
+	protected Color color;
+	protected static String name;
 	public Shape()
 	{
 		
 	}
-	public Shape(boolean selected)
+	public Shape(Color color)
 	{
+		this.color=color;
+	}
+	public Shape(Color color,boolean selected)
+	{
+		this(color);
 		this.selected=selected;
 	}
-	
 	public abstract boolean contains(int x,int y);
 	public abstract void Draw(Graphics g);
 	
+	
+	public Color getColor() {
+		return color;
+	}
+	public void setColor(Color color) {
+		this.color = color;
+	}
 	public boolean isselected()
 	{
 		return selected;

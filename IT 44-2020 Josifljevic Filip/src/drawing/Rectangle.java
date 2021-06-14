@@ -3,7 +3,7 @@ package drawing;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle extends Shape{
+public class Rectangle extends TwoColorShapes{
 
 	private Point upperLeft;
 	private int width;
@@ -11,10 +11,11 @@ public class Rectangle extends Shape{
 	
 	public Rectangle()
 	{
-		
+		name="Rectangle";
 	}
 	public Rectangle(Point upperLeft,int width,int height)
 	{
+		this();
 		this.upperLeft=upperLeft;
 		this.width=width;
 		this.height=height;
@@ -113,6 +114,11 @@ public class Rectangle extends Shape{
 			g.drawRect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
 			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
 		}
+	}
+	@Override
+	public void fill(Graphics g) {
+		g.setColor(getInnerColor());
+		g.fillRect(this.upperLeft.getX() + 1, this.upperLeft.getY() + 1, this.width - 1, this.height - 1);
 	}
 	
 	
