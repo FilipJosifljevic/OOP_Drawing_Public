@@ -1,4 +1,4 @@
-package geometry;
+package drawing;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -22,11 +22,7 @@ public class Point extends Shape{
 		this(x,y);
 		this.selected=selected;
 	}
-	public Point(int x,int y,boolean selected,Color color)
-	{
-		this(x,y,selected);
-		this.setColor(color);;
-	}
+	
 	public double distance(int x,int y) {
 		int dx=this.x-x;
 		int dy=this.y-y;
@@ -39,7 +35,6 @@ public class Point extends Shape{
 	}
 	public void Draw(Graphics g)
 	{
-		g.setColor(getColor());
 		g.drawLine(x-2, y, x+2, y);
 		g.drawLine(x,y-2,x,y+2);
 		if(selected)
@@ -51,7 +46,7 @@ public class Point extends Shape{
 	@Override
 	public String toString()
 	{
-		return "X : "+x+" , Y : "+y;
+		return "("+x+","+y+")";
 	}
 	@Override
 	public boolean equals(Object obj)

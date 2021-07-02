@@ -1,4 +1,4 @@
-package geometry;
+package drawing;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,12 +20,6 @@ public class Donut extends Circle{
 		this(center,radius,innerRadius);
 		this.selected=selected;
 	}
-	public Donut(Point center,int radius,int innerRadius,boolean selected,Color color,Color innerColor)
-	{
-		this(center,radius,innerRadius,selected);
-		this.setColor(color);
-		this.setInnerColor(innerColor);
-	}
 	@Override
 	public boolean contains(int x,int y)
 	{
@@ -41,30 +35,20 @@ public class Donut extends Circle{
 		g.setColor(Color.BLACK);
 		super.Draw(g);
 		g.drawOval(center.getX()-innerRadius, center.getY()-innerRadius, 2*innerRadius, 2*innerRadius);
-		this.fill(g);
 		if(selected)
 		{
-			g.setColor(this.getColor());
+			g.setColor(Color.BLUE);
 			g.drawRect(center.getX()-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-radius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()+radius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()-radius-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()+radius-2, 4, 4);
-			g.drawRect(center.getX()-2, center.getY()-2, 4, 4); 
+			g.drawRect(center.getX()-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-innerRadius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()+innerRadius-2, center.getY()-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()-innerRadius-2, 4, 4);
 			g.drawRect(center.getX()-2, center.getY()+innerRadius-2, 4, 4);
 		}
-	}
-	public void fill(Graphics g) {
-		g.setColor(getInnerColor());
-		super.fill(g);
-		g.setColor(Color.LIGHT_GRAY);
-		g.fillOval(getcenter().getX() - this.innerRadius,
-					getcenter().getY() - this.innerRadius,
-					this.innerRadius * 2 - 2,
-					this.innerRadius * 2 - 2);
 	}
 	@Override
 	public double area()
@@ -74,7 +58,7 @@ public class Donut extends Circle{
 	@Override
 	public String toString()
 	{
-		return super.toString() + ", inner radius : "+innerRadius;
+		return super.toString() + ",inner radius = "+innerRadius;
 	}
 	@Override
 	public boolean equals(Object obj)

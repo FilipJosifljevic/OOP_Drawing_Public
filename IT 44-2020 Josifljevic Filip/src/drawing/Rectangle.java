@@ -1,9 +1,9 @@
-package geometry;
+package drawing;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Rectangle extends TwoColorShapes{
+public class Rectangle extends Shape{
 
 	private Point upperLeft;
 	private int width;
@@ -11,6 +11,7 @@ public class Rectangle extends TwoColorShapes{
 	
 	public Rectangle()
 	{
+		
 	}
 	public Rectangle(Point upperLeft,int width,int height)
 	{
@@ -23,12 +24,7 @@ public class Rectangle extends TwoColorShapes{
 		this(upperLeft,width,height);
 		this.selected=selected;
 	}
-	public Rectangle(Point upperLeft,int width,int height,boolean selected,Color color,Color innerColor)
-	{
-		this(upperLeft,width,height,selected);
-		this.setColor(color);
-		this.setInnerColor(innerColor);
-	}
+	
 	public int area()
 	{
 		return this.width*this.height;
@@ -48,7 +44,7 @@ public class Rectangle extends TwoColorShapes{
 	@Override
 	public String toString()
 	{
-		return "Upper left point : "+upperLeft+" , width : "+width+" , height : "+height;
+		return "Upper left point : "+upperLeft+",width : "+width+",height : "+height;
 	}
 	@Override
 	public boolean equals(Object obj)
@@ -107,22 +103,16 @@ public class Rectangle extends TwoColorShapes{
 	}
 	@Override
 	public void Draw(Graphics g) {
-		g.setColor(getColor());
+		g.setColor(Color.BLACK);
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
-		this.fill(g);
 		if(selected)
 		{
+			g.setColor(Color.BLUE);
 			g.drawRect(upperLeft.getX()-2, upperLeft.getY()-2, 4, 4);
 			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY(), 4, 4);
 			g.drawRect(upperLeft.getX()-2, upperLeft.getY()+height-2, 4, 4);
 			g.drawRect(upperLeft.getX()+width-2, upperLeft.getY()+height-2, 4, 4);
-			
 		}
-	}
-	@Override
-	public void fill(Graphics g) {
-		g.setColor(getInnerColor());
-		g.fillRect(this.upperLeft.getX() + 1, this.upperLeft.getY() + 1, this.width - 1, this.height - 1);
 	}
 	
 	

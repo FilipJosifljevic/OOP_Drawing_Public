@@ -1,15 +1,16 @@
-package geometry;
+package drawing;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle extends TwoColorShapes{
+public class Circle extends Shape{
 
 	protected Point center;
 	protected int radius;
 	
 	public Circle()
 	{
+		
 	}
 	public Circle(Point center,int radius)
 	{
@@ -21,12 +22,7 @@ public class Circle extends TwoColorShapes{
 		this(center,radius);
 		this.selected=selected;
 	}
-	public Circle(Point center,int radius,boolean selected,Color color,Color innerColor)
-	{
-		this(center,radius,selected);
-		this.setColor(color);
-		this.setInnerColor(innerColor);
-	}
+	
 	public double area()
 	{
 		return Math.pow(this.radius,2)*Math.PI;
@@ -46,7 +42,7 @@ public class Circle extends TwoColorShapes{
 	@Override
 	public String toString()
 	{
-		return "Center : "+center.toString()+" , radius : "+radius;
+		return "Center : "+center.toString()+",radius : "+radius;
 	}
 	@Override
 	public boolean equals(Object obj)
@@ -71,20 +67,13 @@ public class Circle extends TwoColorShapes{
 		center.moveBy(byX, byY);
 		
 	}
-	@Override 
+	@Override
 	public int compareTo(Object o) {
 		if(o instanceof Circle)
 		{
 			return (int)(this.area()-((Circle) o).area());
 		}
 		return 0;
-	}
-	@Override
-	public void fill(Graphics g) {
-		g.setColor(getInnerColor());
-		g.fillOval(this.center.getX() - this.radius + 1, this.center.getY() - this.radius + 1,
-				this.radius*2 - 2, this.radius*2 - 2);
-		
 	}
 	public Point getcenter()
 	{
@@ -108,9 +97,8 @@ public class Circle extends TwoColorShapes{
 	}
 	@Override
 	public void Draw(Graphics g) {
-		g.setColor(this.getColor());
+		g.setColor(Color.BLACK);
 		g.drawOval(center.getX()-radius, center.getY()-radius, 2*radius, 2*radius);
-		this.fill(g);
 		if(selected)
 		{
 			g.setColor(Color.BLUE);

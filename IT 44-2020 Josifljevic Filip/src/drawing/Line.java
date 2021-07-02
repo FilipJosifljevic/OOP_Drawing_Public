@@ -1,4 +1,4 @@
-package geometry;
+package drawing;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,6 +10,7 @@ public class Line extends Shape{
 	
 	public Line()
 	{
+		
 	}
 	public Line(Point startPoint,Point endPoint)
 	{
@@ -18,14 +19,10 @@ public class Line extends Shape{
 	}
 	public Line(Point startPoint,Point endPoint,boolean selected)
 	{
-		this(startPoint,endPoint); 
+		this(startPoint,endPoint);
 		this.selected=selected;
 	}
-	public Line(Point startPoint,Point endPoint,boolean selected,Color color)
-	{
-		this(startPoint,endPoint,selected);
-		this.setColor(color);;
-	}
+	
 	public double length()
 	{
 		return startPoint.distance(endPoint.getX(), endPoint.getY());
@@ -37,7 +34,7 @@ public class Line extends Shape{
 	@Override
 	public String toString()
 	{
-		return "StartPoint : " + startPoint+" --> "+" EndPoint : "+endPoint;
+		return startPoint+" --> "+endPoint;
 	}
 	@Override
 	public boolean equals(Object obj)
@@ -86,10 +83,11 @@ public class Line extends Shape{
 	}
 	@Override
 	public void Draw(Graphics g) {
-		g.setColor(this.getColor());
+		g.setColor(Color.BLACK);
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
 		if(selected)
 		{
+			g.setColor(Color.BLUE);
 			g.drawRect(getstartPoint().getX()-2, getstartPoint().getY()-2, 4, 4);
 			g.drawRect(getendPoint().getX()-2, getendPoint().getY()-2, 4, 4);
 		}
