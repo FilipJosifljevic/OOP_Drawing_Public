@@ -65,7 +65,7 @@ public class MainFrm extends JFrame {
 					MainFrm frame = new MainFrm();
 					frame.setVisible(true);
 				} catch (Exception e) {
-					e.printStackTrace();
+					e.printStackTrace();  
 				}
 			}
 		});
